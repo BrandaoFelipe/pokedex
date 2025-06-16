@@ -15,5 +15,23 @@
       </ion-label>
     </ion-item>
   </ion-list>
-</ion-content>
 
+  <!-- Botões de paginação no final da lista -->
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="prevPage()" [disabled]="currentPage === 1">
+        <ion-icon name="chevron-back"></ion-icon>
+        Anterior
+      </ion-button>
+    </ion-buttons>
+    
+    <ion-title slot="center">Página {{ currentPage }}</ion-title>
+    
+    <ion-buttons slot="end">
+      <ion-button (click)="nextPage()" [disabled]="(currentPage * limit) >= totalPokemons">
+        Próxima
+        <ion-icon name="chevron-forward"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-content>
